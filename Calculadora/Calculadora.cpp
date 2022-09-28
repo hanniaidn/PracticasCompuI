@@ -20,24 +20,30 @@ int main() {
     cin >> num2;
     if (operador == '+') {
         resultado = num1+num2;
-        cout<< "Resultado: \n" << num1 << operador << num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
     }
     if (operador == '-') {
         resultado = num1-num2;
-        cout<< "Resultado: \n" << num1 << operador << num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
     }
     if (operador == '*') {
         resultado = num1*num2;
-        cout<< "Resultado: \n" << num1 << operador << num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
     }
     if (operador == '/') {
-        resultado = num1/num2;
-        cout<< "Resultado: \n" << num1 << operador << num2 << "=" << resultado << endl;
+        if (num2==0){
+            cout<< "La division no es posible"<<endl;
+        }
+        else {
+            resultado = num1/num2;
+            cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
+        }
     }
     if (operador == '%') {
-        resultado = num1%num2;
-        cout<< "Resultado: \n" << num1 << operador << num2 << "=" << resultado << endl;
+        resultado = (int)num1 % (int)num2;
+        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
     }
-
     return 0;
 }
+
+
