@@ -3,6 +3,7 @@
  * Práctica 3: Calculadora
  */
 #include <iostream>
+#include <cmath>
 using namespace std;
 float num1;
 float num2;
@@ -20,15 +21,15 @@ int main() {
     cin >> num2;
     if (operador == '+') {
         resultado = num1+num2;
-        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << " + " << num2 << " = " << resultado << endl;
     }
     if (operador == '-') {
         resultado = num1-num2;
-        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << " - " << num2 << " = " << resultado << endl;
     }
     if (operador == '*') {
         resultado = num1*num2;
-        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << " * " << num2 << " = " << resultado << endl;
     }
     if (operador == '/') {
         if (num2==0){
@@ -36,12 +37,12 @@ int main() {
         }
         else {
             resultado = num1/num2;
-            cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
+            cout<< "Resultado: \n" << num1 << " / " << num2 << " = " << resultado << endl;
         }
     }
     if (operador == '%') {
         resultado = (int)num1 % (int)num2;
-        cout<< "Resultado: \n" << num1 << operador<< num2 << "=" << resultado << endl;
+        cout<< "Resultado: \n" << num1 << " % " << num2 << " = " << resultado << endl;
     }
     return 0;
 }
