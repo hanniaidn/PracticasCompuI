@@ -19,10 +19,10 @@ array<float, LEN> SumarArreglos(array<float, LEN> arr1, array<float, LEN> arr2);
 int main()
 {
     char decision;
-    array<float, LEN> arr = { 0 }; // Inicializamos el arreglo con ceros como buena práctica
-    arr = LlenarArreglo(); // Solicitamos al usuario que llene un arreglo y lo asignamos a nuestro arreglo principal
-    cout << "Operacion: ";
-    cin >> decision;
+    array<float, LEN>arr={ 0 }; // Inicializamos el arreglo con ceros como buena práctica
+    arr=LlenarArreglo(); // Solicitamos al usuario que llene un arreglo y lo asignamos a nuestro arreglo principal
+    cout<<"Operacion: ";
+    cin>>decision;
     // Si la operación no es '+' de suma, o '*' de multiplicación, seguimos preguntando al usuario.
     while (decision != '+' && decision != '*')
     {
@@ -55,20 +55,41 @@ void ImprimirArreglo(array<float, LEN> arreglo)
     cout << '\n';
 }
 
-// Llena un arreglo de tamaño LEN y lo "regresa" como resultado
+//Código implementado por mí
+
+// LLENAR ARREGLO
+//solicita al usuario llenar el arreglo (tamaño LEN) elemento por elemento, comenzando por el primero,
+// segundo y así sucesivamente; al final regresa el arreglo llenado por el usuario
 array<float, LEN> LlenarArreglo()
 {
-    // TODO
+    array<float, LEN>arreglo {0};
+    for (int i=0; i<LEN; i++) {
+        cout<<"Elemento arreglo posicion " << i <<" :";
+        cin>>arreglo[i];
+    }
+    return arreglo;
 }
 
-// Multiplica cada elemento del arreglo 'arreglo' por el factor 'mult'
+//MULTIPLICAR ARREGLO
+// Multiplica cada elemento del arreglo 'arreglo' por el factor 'mult',
+// regresa el arreglo resultante de dicha operación
 array<float, LEN> MultiplicarArreglo(array<float, LEN> arreglo, float multiplo)
 {
-    // TODO
+    array<float, LEN>arrM;
+    for (int i=0; i<LEN; i++) {
+        arrM[i]=arreglo[i]*multiplo;
+    }
+    return arrM;
 }
 
+//SUMAR ARREGLO
 // Suma elemento a elemento los arreglos 'arr1' y 'arr2' y regresa el arreglo resultante
 array<float, LEN> SumarArreglos(array<float, LEN> arr1, array<float, LEN> arr2)
 {
-    // TODO
+    array<float, LEN>arrS;
+    for (int i=0; i<LEN; i++) {
+        arrS[i]=arr1[i]+arr2[i];
+    }
+    return arrS;
 }
+
