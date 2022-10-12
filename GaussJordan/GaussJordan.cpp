@@ -1,3 +1,8 @@
+/*Author: Hannia Isela Domínguez Núñez
+ * 11/10/22
+ * mail: hanniadominguez9@gmail.com
+ */
+
 #include <iostream>
 #include <array>
 
@@ -41,7 +46,7 @@ int main()
     return 0; // Indicamos que salimos del programa con éxito
 }
 
-/* 
+/*
 Llena 'miMatriz' con valores ingresados por el usuario para cada elemento.
 No regresa ningún valor.
 */
@@ -57,7 +62,7 @@ void LlenarMatriz(matriz & miMatriz)
     }
 }
 
-/* 
+/*
 Imprime cada elemento de 'miMatriz' emulando una matriz con corchetes cuadrados.
 No regresa ningún valor.
 */
@@ -80,7 +85,11 @@ No regresa ningún valor.
 template <typename matriz>
 void ImprimirSolucion(matriz & miMatriz)
 {
-    //TODO
+    int variables = miMatriz.size();
+    cout << "\nSolucion:" <<endl;
+    for(int i = 0; i < variables; i++) {
+        cout << "x" << i << " = " << miMatriz[i][variables] << endl;
+    }
 }
 
 /*
@@ -90,5 +99,46 @@ No regresa ningún valor.
 template <typename matriz>
 void GaussJordan(matriz & miMatriz)
 {
-    //TODO
+    double superior;
+    int index;
+    double aux;
+    double piv;
+
+    int rows = miMatriz.size();
+    for(int i = 0; i < rows; i++ ){
+        superior = abs(miMatriz[i][i]);
+        index = i;
+        for(int j = i + 1; j < rows; j++){
+            if(superior < abs(miMatriz[j][i])){
+                superior = abs(miMatriz[j][i]);
+                index = j;
+            }
+        }
+        if(i != index){
+            for(int n = 0; n < rows + 1; n++){
+                aux = miMatriz[i][n];
+                miMatriz[i][n] = miMatriz[index][n];
+                miMatriz[index][n] = aux;
+            }
+        }
+        if(miMatriz[i][i] == 0){
+            cout << "No existe solucion\n";
+        }
+        else{
+            for(int n = 0; n < rows; n++){
+                if (n!=i){
+                    piv = -miMatriz[n][i];
+                    for(int m = i; m< rows + 1; m++){
+                        miMatriz[n][m] = miMatriz[n][m] + piv * miMatriz[i][m] / miMatriz[i][i];
+                    }
+                }
+                else{
+                    piv = miMatriz[i][i];
+                    for(int m= i; m< rows + 1; m++){
+                        miMatriz[n][m] = miMatriz[n][m] / piv;
+                    }
+                }
+            }
+        }
+    }
 }
